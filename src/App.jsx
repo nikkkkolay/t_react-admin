@@ -1,11 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
     return (
-        <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<MainPage />} />
-        </Routes>
+        <>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/admin/*" element={<AdminPage />} />
+                <Route path="*" element={<h1>Ups1</h1>} />
+            </Routes>
+        </>
     );
 }
 
