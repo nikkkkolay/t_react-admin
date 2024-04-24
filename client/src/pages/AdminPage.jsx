@@ -48,7 +48,7 @@ const PostList = (props) => {
                 <BooleanField label="Автивность" source="avtive" />
                 <TextField source="title" label="Заголовок" />
                 <DateField source="publishedhAt" label="Дата публикации" />
-                <DateField source="activDate" label="Дата начала активности" />
+                <DateField source="activeDate" label="Дата начала активности" />
                 <EditButton basepath="/posts" />
                 <DeleteButton basepath="/posts" />
             </Datagrid>
@@ -61,7 +61,7 @@ const PostCreate = (props) => {
         <Create {...props}>
             <SimpleForm>
                 <BooleanInput label="Автивность" source="avtive" defaultValue={true} />
-                <DateInput source="activDate" label="Дата начала активности" />
+                <DateInput source="activeDate" label="Дата начала активности" />
                 <DateInput source="publishedhAt" label="Дата публикации" validate={[required()]} />
                 <TextInput source="title" label="Заголовок" validate={[required()]} fullWidth />
                 <MyRichTextInput validate={[required()]} fullWidth />
@@ -79,7 +79,7 @@ const PostEdit = (props) => {
             <SimpleForm>
                 <TextInput source="id" disabled />
                 <BooleanInput label="Автивность" source="avtive" />
-                <DateInput source="activDate" label="Дата начала активности" />
+                <DateInput source="activeDate" label="Дата начала активности" />
                 <DateInput source="publishedhAt" label="Дата публикации" validate={[required()]} />
                 <TextInput source="title" label="Заголовок" validate={[required()]} fullWidth />
                 <MyRichTextInput validate={[required()]} fullWidth />
