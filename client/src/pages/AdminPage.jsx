@@ -16,6 +16,7 @@ import {
     BooleanInput,
     ImageInput,
     ImageField,
+    BooleanField,
 } from "react-admin";
 import { RichTextInput, RichTextInputToolbar, LevelSelect, FormatButtons, ListButtons, LinkButtons, QuoteButtons, ClearButtons } from "ra-input-rich-text";
 import polyglotI18nProvider from "ra-i18n-polyglot";
@@ -44,8 +45,10 @@ const PostList = (props) => {
     return (
         <List {...props} title="Список новостей">
             <Datagrid>
+                <BooleanField label="Автивность" source="avtive" />
                 <TextField source="title" label="Заголовок" />
-                <DateField source="publishedhAt" label="Дата" />
+                <DateField source="publishedhAt" label="Дата публикации" />
+                <DateField source="activDate" label="Дата начала активности" />
                 <EditButton basepath="/posts" />
                 <DeleteButton basepath="/posts" />
             </Datagrid>
@@ -58,7 +61,7 @@ const PostCreate = (props) => {
         <Create {...props}>
             <SimpleForm>
                 <BooleanInput label="Автивность" source="avtive" defaultValue={true} />
-                <DateInput source="publishedhAt" label="Дата начала активности" />
+                <DateInput source="activDate" label="Дата начала активности" />
                 <DateInput source="publishedhAt" label="Дата публикации" validate={[required()]} />
                 <TextInput source="title" label="Заголовок" validate={[required()]} fullWidth />
                 <MyRichTextInput validate={[required()]} fullWidth />
@@ -76,7 +79,7 @@ const PostEdit = (props) => {
             <SimpleForm>
                 <TextInput source="id" disabled />
                 <BooleanInput label="Автивность" source="avtive" />
-                <DateInput source="publishedhAt" label="Дата начала активности" />
+                <DateInput source="activDate" label="Дата начала активности" />
                 <DateInput source="publishedhAt" label="Дата публикации" validate={[required()]} />
                 <TextInput source="title" label="Заголовок" validate={[required()]} fullWidth />
                 <MyRichTextInput validate={[required()]} fullWidth />
