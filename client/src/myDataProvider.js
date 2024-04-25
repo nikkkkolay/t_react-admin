@@ -1,7 +1,7 @@
 import restProvider from "ra-data-json-server";
 import { withLifecycleCallbacks } from "react-admin";
 
-const myDataProvider = withLifecycleCallbacks(restProvider("http://localhost:3000"), [
+const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_JSON_SERVER_URL), [
     {
         resource: "posts",
         beforeSave: async (params) => {
