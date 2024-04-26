@@ -8,7 +8,6 @@ export const PostList = (props) => {
                 <BooleanField label="Автивность" source="active" />
                 <TextField source="title" label="Заголовок" />
                 <DateField source="published_at" label="Дата публикации" />
-                <DateField source="active_date" showTime locales="ru" label="Дата начала активности" />
                 <EditButton basepath="/posts" />
                 <DeleteButton basepath="/posts" />
             </Datagrid>

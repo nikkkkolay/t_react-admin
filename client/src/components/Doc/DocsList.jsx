@@ -6,7 +6,7 @@ export const DocsList = (props) => {
             <Datagrid>
                 <TextField source="id" />
                 <BooleanField label="Автивность" source="active" />
-                <TextField source="title" label="Название" resettable />
+                <TextField source="title" label="Название" />
                 <DateField source="published_at" label="Дата публикации" />
                 <EditButton basepath="/documents" />
                 <DeleteButton basepath="/documents" />
