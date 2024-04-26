@@ -14,7 +14,7 @@ export const DocsEdit = (props) => {
                             <DateInput source="published_at" label="Дата публикации" validate={[required()]} />
                         </Grid>
                         <Grid item xs={12}>
-                            <TextInput source="title" label="Название" validate={[required()]} fullWidth />
+                            <TextInput source="title" label="Название" validate={[required()]} fullWidth resettable />
                         </Grid>
                         <Grid item xs={12}>
                             <FileInput source="file" label="Файл">

@@ -35,16 +35,22 @@ const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_
     {
         resource: "documents",
         beforeSave: async (params) => {
-            const base64file = await Promise.resolve(convertFileToBase64(params.file));
+            if (params.file) {
+                const base64file = await Promise.resolve(convertFileToBase64(params.file));
 
-            const file = {
-                src: base64file,
-                title: params.title,
-            };
+                const file = {
+                    src: base64file,
+                    title: params.title,
+                };
+
+                return {
+                    ...params,
+                    file,
+                };
+            }
 
             return {
                 ...params,
-                file,
             };
         },
     },
