@@ -5,29 +5,31 @@ const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_
     {
         resource: "posts",
         beforeSave: async (params) => {
-            const newPictures = params.pictures.filter((p) => p.rawFile);
-            const formerPictures = params.pictures.filter((p) => !p.rawFile);
-            const base64Pictures = await Promise.all(newPictures.map(convertFileToBase64));
-            const base64image = await Promise.resolve(convertFileToBase64(params.image));
+            if (params.pictures || params.image) {
+                const newPictures = params.pictures.filter((p) => p.rawFile);
+                const formerPictures = params.pictures.filter((p) => !p.rawFile);
+                const base64Pictures = await Promise.all(newPictures.map(convertFileToBase64));
+                const base64image = await Promise.resolve(convertFileToBase64(params.image));
 
-            const pictures = [
-                ...base64Pictures.map((dataUrl, index) => ({
-                    src: dataUrl,
-                    title: newPictures[index].title,
-                })),
-                ...formerPictures,
-            ];
+                const pictures = [
+                    ...base64Pictures.map((dataUrl, index) => ({
+                        src: dataUrl,
+                        title: newPictures[index].title,
+                    })),
+                    ...formerPictures,
+                ];
 
-            const image = {
-                src: base64image,
-                title: params.image.title,
-            };
+                const image = {
+                    src: base64image,
+                    title: params.image.title,
+                };
 
-            return {
-                ...params,
-                pictures,
-                image,
-            };
+                return {
+                    ...params,
+                    pictures,
+                    image,
+                };
+            }
         },
     },
 ]);
