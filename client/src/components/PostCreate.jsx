@@ -11,9 +11,6 @@ export const PostCreate = (props) => {
                         <Grid item xs={12}>
                             <BooleanInput label="Автивность" source="active" defaultValue={true} />
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextInput source="id" disabled />
-                        </Grid>
                         <Grid item md={2}>
                             <DateInput source="published_at" label="Дата публикации" validate={[required()]} />
                         </Grid>

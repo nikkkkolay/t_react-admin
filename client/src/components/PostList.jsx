@@ -4,6 +4,7 @@ export const PostList = (props) => {
     return (
         <List {...props} title="Список новостей">
             <Datagrid>
+                <TextField source="id" />
                 <BooleanField label="Автивность" source="active" />
                 <TextField source="title" label="Заголовок" />
                 <DateField source="published_at" label="Дата публикации" />
