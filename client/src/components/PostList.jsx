@@ -2,7 +2,7 @@ import { List, Datagrid, TextField, DateField, EditButton, DeleteButton, Boolean
 
 export const PostList = (props) => {
     return (
-        <List {...props} title="Список новостей">
+        <List {...props} title="Список новостей" exporter={false}>
             <Datagrid>
                 <TextField source="id" />
                 <BooleanField label="Автивность" source="active" />
