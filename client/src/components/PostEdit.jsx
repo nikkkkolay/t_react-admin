@@ -21,12 +21,12 @@ export const PostEdit = (props) => {
                             <TextInput source="title" label="Заголовок" validate={[required()]} fullWidth />
                         </Grid>
                         <Grid item xs={12}>
+                            <MyRichTextInput validate={[required()]} fullWidth />
+                        </Grid>
+                        <Grid item xs={12}>
                             <ImageInput source="image" label="Главное фото" placeholder="Перетащите изображения сюда или нажмите для выбора. (Можно загрузить один файл)">
                                 <ImageField source="src" title="title" />
                             </ImageInput>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <MyRichTextInput validate={[required()]} fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <ImageInput

@@ -8,6 +8,7 @@ const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_
             const newPictures = params.pictures.filter((p) => p.rawFile);
             const formerPictures = params.pictures.filter((p) => !p.rawFile);
             const base64Pictures = await Promise.all(newPictures.map(convertFileToBase64));
+            const base64image = await Promise.resolve(convertFileToBase64(params.image));
 
             const pictures = [
                 ...base64Pictures.map((dataUrl, index) => ({
@@ -17,9 +18,15 @@ const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_
                 ...formerPictures,
             ];
 
+            const image = {
+                src: base64image,
+                title: params.image.title,
+            };
+
             return {
                 ...params,
                 pictures,
+                image,
             };
         },
     },
