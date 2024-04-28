@@ -1,7 +1,16 @@
 import restProvider from "ra-data-json-server";
-import { withLifecycleCallbacks } from "react-admin";
+import { withLifecycleCallbacks, fetchUtils } from "react-admin";
 
-const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_JSON_SERVER_URL), [
+const httpClient = (url, options = {}) => {
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: "application/json" });
+    }
+    const auth = JSON.parse(localStorage.getItem("auth"));
+    options.headers.set("Authorization", `Bearer ${auth.accessToken}`);
+    return fetchUtils.fetchJson(url, options);
+};
+
+const myDataProvider = withLifecycleCallbacks(restProvider(import.meta.env.VITE_JSON_SERVER_URL, httpClient), [
     {
         resource: "posts",
         beforeSave: async (params) => {
