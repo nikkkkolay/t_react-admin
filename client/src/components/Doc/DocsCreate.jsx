@@ -17,7 +17,7 @@ export const DocsCreate = (props) => {
                             <TextInput source="title" label="Название" validate={[required()]} fullWidth />
                         </Grid>
                         <Grid item xs={12}>
-                            <FileInput source="file" label="Файл">
+                            <FileInput source="file" label="Файл" validate={[required()]}>
                                 <FileField source="src" title="title" />
                             </FileInput>
                         </Grid>
