@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "server": "json-server --watch db.json --port 3000",
+        "server": "json-server-auth --watch db.json -r authRouts.json --port 3000",
         "client": "npm run dev --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\""
     },
@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "concurrently": "^8.2.2",
-        "json-server": "^0.17.4"
+        "json-server": "^0.17.4",
+        "json-server-auth": "^2.1.0"
     }
 }

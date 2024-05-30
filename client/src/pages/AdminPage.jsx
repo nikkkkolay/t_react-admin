@@ -17,7 +17,7 @@ const AdminPage = () => (
     <Admin loginPage={MyLoginPage} dataProvider={myDataProvider} basename="/admin" i18nProvider={i18nProvider} authProvider={authProvider}>
         <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} options={{ label: "Новости" }} icon={NewspaperIcon} />
         <Resource name="documents" list={DocsList} create={DocsCreate} edit={DocsEdit} options={{ label: "Документы" }} icon={HistoryEduIcon} />
-        <Resource name="contacts" list={Contacts} edit={Contacts} options={{ label: "Контакты" }} icon={CallIcon} />
+        <Resource name="contacts" list={Contacts} create={Contacts} options={{ label: "Контакты" }} icon={CallIcon} />
     </Admin>
 );
 
